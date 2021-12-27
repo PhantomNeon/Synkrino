@@ -1,0 +1,15 @@
+using System;
+
+namespace Application
+{
+    class Application
+    {
+        public string b = "a";
+        public int a;
+
+        public static void Main()
+        {
+            int c = 0;
+        }
+    }
+}
