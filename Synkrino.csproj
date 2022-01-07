@@ -14,10 +14,12 @@
     <Authors>PhantomNeon</Authors>
     <Description>Synkrino is a code comparison tool which helps you find the differences in two separate c# files.</Description>
     <PackageVersion>1.2.0-PreRelease</PackageVersion>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis" Version="4.0.1" />
+    <None Include="D:\Stuff\More Stuff\Synkrino\LICENSE.txt" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>
