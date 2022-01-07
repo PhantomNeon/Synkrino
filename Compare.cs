@@ -1,5 +1,6 @@
 global using Microsoft.CodeAnalysis;
 global using Microsoft.CodeAnalysis.CSharp;
+global using Microsoft.CodeAnalysis.Text;
 global using Microsoft.CodeAnalysis.Diagnostics;
 global using Microsoft.CodeAnalysis.Formatting;
 global using Microsoft.CodeAnalysis.CSharp.Formatting;
@@ -37,7 +38,7 @@ public class Compare
     }
     private bool FilterTrees(ref DynamicSyntaxTree list1, ref DynamicSyntaxTree list2)
     {
-        if(!list1.HasChildren && !list2.HasChildren)
+        if(!list1.HasDynamicChildren && !list2.HasDynamicChildren)
             return list1.Self!.IsEquivalentTo(list2.Self);
 
         for (int i = 0; i < list1.Children.Count; i++)
@@ -69,7 +70,7 @@ public class Compare
         list1Output = new DynamicSyntaxTree();
         list2Output = new DynamicSyntaxTree();
 
-        if(!list1.HasChildren && !list2.HasChildren)
+        if(!list1.HasDynamicChildren && !list2.HasDynamicChildren)
             return list1.Self!.IsEquivalentTo(list2.Self);
 
         for (int i = 0; i < list1.Children.Count; i++)

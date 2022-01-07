@@ -3,8 +3,8 @@ public class DynamicSyntaxTree
 {
     public SyntaxNode? Self { get; init; }
     public List<DynamicSyntaxTree> Children { get; set; } = new();
-    public bool HasChildren { get {return Children.Count > 0;} }
-
+    public bool HasDynamicChildren { get {return Children.Any();} }
+    public bool HasChildren { get{return Self!.ChildNodes().Any();} } 
     public static DynamicSyntaxTree CreateTree(SyntaxNode tree)
     {
         if (!tree.ChildNodes().Any())
