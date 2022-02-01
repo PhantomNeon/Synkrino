@@ -13,7 +13,7 @@
 
     <Authors>PhantomNeon</Authors>
     <Description>Synkrino is a code comparison tool which helps you find the differences in two separate c# files.</Description>
-    <PackageVersion>1.2.2-PreRelease</PackageVersion>
+    <PackageVersion>1.2.5-PreRelease</PackageVersion>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
 
