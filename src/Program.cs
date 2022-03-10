@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
+using System.Net;
 
-[assembly: AssemblyVersion("1.2.5")]
+[assembly: AssemblyVersion("1.3.5")]
 namespace Synkrino;
 public class Program
 {
@@ -55,6 +56,14 @@ public class Program
 
                     case "compare" when arguements.Length == 4 && arguements[2] == "from" :
                     {    
+                        string? file1 = GetFileFromPath(arguements[1]);
+                        string? file2;
+
+                        using(WebClient client = new())
+                            file2 = client.DownloadString(arguements[3]);
+
+                        Compare compare = new(file1, file2);
+                        ReturnAnalysis(compare.TreeBeingCompared, compare.TreeBeingComparedTo);
                         break;
                     }
 
@@ -70,6 +79,12 @@ public class Program
             catch (FileNotFoundException)
             {
                 Console.WriteLine("One of the path provided is unreachable. Please make sure both of them are valid.");
+                continue;
+            }
+
+            catch (Exception)
+            {
+                Console.WriteLine("Something unexpected went wrong. Please try the command again. If it doesn't work again, please file an issue on the github repo");
                 continue;
             }
         }
